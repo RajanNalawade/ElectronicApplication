@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+
+    <title>Electronic Application | Annexure</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords" content="" />
+    <meta name="theme-color" content="#317EFB" />
+    <meta name="Description" content="Annexure">
+
+    <link rel="shortcut icon" type="image/png" href="../Assets/icons/app-icon-192.png"/>
+
+    <!-- wpa manifest -->
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- web RTC -->
+    <script src="https://www.webrtc-experiment.com/common.js"></script>
+
+    <!-- image compression -->
+    <script src="../Assets/js/image-compression.min.js" type="text/javascript"></script>
+
+    <!-- send email -->
+    <!-- <script src="https://smtpjs.com/v3/smtp.js" type="text/javascript"></script> -->
+
+    <script src="../Assets/js/pdfmake.min.js" type="text/javascript"></script>
+    <script src="../Assets/js/vfs_fonts.js" type="text/javascript"></script>
+    <script src="Annexure.js"></script>
+    <script src="RecordRTC.js"></script>
+    <script src="VideoCallRTC.js"></script>
+    <script src="../Common/global.js"></script>
+    <link href="../Common/global.css" rel="stylesheet">
+    <script src="../Common/productPlanListData.js"></script>
+</head>
+
+<body>
+
+    <div class="loading" id="loader"></div>
+
+    <div id="divMainContainerError" class="container-fluid" style="margin: 10px; display: block;">
+    
+        <div class="row">
+            <h3 id="divMainContainerError1">No Data Found</h3>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="text-align: center">
+            
+            <!-- <div class="modal-content" > -->
+                <p style="text-align: justify">
+                    <span id="modalDesc1"></span>
+                <a id="anchorPIVCLInk" href=""></a>
+                <span id="modalDesc2">Some text in the Modal..</span>
+                <a id="anchorPIVCCall" href="18002679090">18002679090</a>
+                    <span id="modalDesc3">Some text in the Modal..</span>
+                </p>
+
+            <!-- </div> -->
+
+            <button type="button" class="btn btn-warning" onclick="onClickPIVCLink(true)">
+                DO PIVC NOW
+            </button>
+
+            <button type="button" class="btn btn-warning" onclick="onClickPIVCLink(false)">
+                DO LATER
+            </button>
+        </div>
+    </div>
+
+    <div id="divMainContainer" class="container-fluid" style="margin: 10px; display: none;">
+
+        <div class="row" style="text-align: right;">
+            <img id="imgSBIGeneral" src="https://www.sbigeneral.in/portal/buy-online/assets/healthPlus/images/logo.svg" 
+                style="height: 50px; vertical-align: text-top; position: absolute; display: none;">
+            <img src="../Assets/images/sbil-logo.png" style="height: 50px; vertical-align: text-top;">
+        </div>
+
+        <div class="row" style="text-align: center;">
+            <h3 id="txtProposalNumer" >Annexure to Electronic Proposal Number</h3>
+        </div>
+
+        <div class="row" style="text-align: justify;">
+            <p>Dear Customer,</p>
+            <p id="para_consent1">Placed below is the link to down load your proposal form along with Benefit Illustration, Need Analysis, FATCA and other forms. You are requested to download these documents and validate them by going through the process steps as given below.</p>
+        </div>
+
+        <div class="row">
+            <a id="linkProposalPDF" target="_blank" style="font-size: 20px; color: steelblue;">View Proposal Form and Other Documents</a>
+        </div>
+
+        <div class="row">
+            <h3>Customer Declaration</h3>
+        </div>
+
+        <div class="row" style="text-align: justify; display: inline-flex;">
+            <input id="checktermCondition" type="checkbox"/><p id="para_term_codition">consent </p>
+        </div>
+
+        <div class="row" id="sepEkycDeclaration">
+            <hr style="margin-top: 10px; margin-bottom: 10px; border-top: 1px solid black;">
+        </div>
+
+        <div class="row" id="divEkycTitle">
+            <h3>Aadhaar Consent</h3>
+        </div>
+
+        <div id="divEkycDeclaration" class="row" style="text-align: justify; display: inline-flex;">
+            <input id="checkEkycConsent" type="checkbox"/><p id="para_ekyc_consent">consent </p>
+        </div>
+
+        <div class="row">
+            <hr style="margin-top: 10px; margin-bottom: 10px; border-top: 1px solid black;">
+        </div>
+
+        <div class="row" style="text-align: justify; display: inline-flex;">
+            <input id="checkLebelConsent3" type="checkbox"/><p id="lebelConsent3">consent </p>
+        </div>
+
+        <div class="row" hidden>
+            <!-- <div class="col-md-12 text-left no-padding"> -->
+            <label class="btn profile-button pull-left" style="text-align: left; border:1px solid black;">
+                <br>Signature of Proposer</label>
+            <!-- </div> -->
+
+            <!-- <div class="row"> -->
+            <label class="btn profile-button pull-right" style="text-align: right;">Date <input id="txtCustDeclarationDate" type="text" /></label>
+            <!-- </div> -->
+        </div>
+
+        <div class="row" hidden>
+            <hr style="margin-top: 10px; margin-bottom: 10px; border-top: 1px solid black;">
+        </div>
+
+        <div class="row" style="text-align: center;" hidden>
+            <h3>Declaration by Sales Representative</h3>
+        </div>
+
+        <div class="row" hidden>
+            <p>This is to certify that I have read out and explained the contents of the proposal form and contents of
+                this declaration to Mr./Mrs.
+                <input id="txtSalesRepreName" type="text" disabled/> and correctly recorded his answers to all questions in Proposal submitted through
+                electronic application. I
+                further declare that Mr./Mrs./ M/s <input id="txtProposalDeclarationName" type="text" disabled/> has signed this in my presence after
+                understanding contents
+                of the proposal and this declaration.</p>
+        </div>
+
+        <div class="row" hidden>
+
+            <label class="btn profile-button pull-left" style="text-align: left; border:1px solid black;">
+                <br>Signature of Life Mitra/CIF</label>
+
+            <label class="btn profile-button pull-right" style="text-align: right;">Date <input id="txtSalesRepreDate" type="text" /></label>
+
+        </div>
+
+        <div class="row">
+            <hr style="margin-top: 10px; margin-bottom: 10px; border-top: 1px solid black;">
+        </div>
+
+        <div id="divMainEkyc" style="text-align: justify;">
+            <div class="row">
+                <h3>Mobile number and email validation</h3>
+                <p>Dear Sir/Madam,<br>We request you to see the following details carefully and validate your mobile number and email id. This is an important process which will ensure you receive all communications effectively.</p>
+            </div>
+
+            <div id="divNameValidation" class="row" style="width: 100%; border: 1px solid #000; padding: 10px; margin-top: 5px;">
+                <p id="paraNameValidation">Please select your preferred contact method:</p>
+                <div>
+                    <input type="radio" id="paraNameValidationYes"
+                     name="NameValidation" value="Yes" 
+                     onchange="getMobEmailVadilationVal(this, 'NameValidation')"><tr>Yes</tr>
+                
+                    <input type="radio" id="paraNameValidationNo"
+                     name="NameValidation" value="No"
+                     onchange="getMobEmailVadilationVal(this, 'NameValidation')"><tr>No</tr>
+                </div>
+                <div id="divNamePhoto" class="row" style="text-align: center; display: none;">
+            
+                    <video id="videoUser" width="300" height="300" autoplay></video>
+                    <canvas id="canvasUser" width="250" height="250" style="display: none;"></canvas>
+                    <div class="row" style="text-align: center;">
+                        <button type="button" class="btn-info" onclick="onClickCapturePic('name')"
+                            style="text-align: -webkit-center;">Capture</button>
+        
+                        <button type="button" class="btn-info" onclick="onClickRetakePic('name')"
+                            style="text-align: -webkit-center;">Retake</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="divMobileValidation" class="row" style="width: 100%; border: 1px solid #000; padding: 10px; margin-top: 5px;">
+                <p id="paraMobileValidation">Please select your preferred contact method:</p>
+                <div>
+                    <input type="radio" id="rbMobileValidationYes"
+                     name="MobileValidation" value="Yes"
+                     onchange="getMobEmailVadilationVal(this, 'MobileValidation')"><tr>Yes</tr>
+                
+                    <input type="radio" id="rbMobileValidationNo"
+                     name="MobileValidation" value="No"
+                     onchange="getMobEmailVadilationVal(this, 'MobileValidation')"><tr>No</tr>
+                </div>
+                <div id="divMobilePhoto" class="row" style="text-align: center; display: none;">
+            
+                    <video id="videoMobile" width="300" height="300" autoplay></video>
+                    <canvas id="canvasMobile" width="250" height="250" style="display: none;"></canvas>
+                    <div class="row" style="text-align: center;">
+                        <button type="button" class="btn-info" onclick="onClickCapturePic('mobile')"
+                            style="text-align: -webkit-center;">Capture</button>
+        
+                        <button type="button" class="btn-info" onclick="onClickRetakePic('mobile')"
+                            style="text-align: -webkit-center;">Retake</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="divEmailValidation" class="row" style="width: 100%; border: 1px solid #000; padding: 10px; margin-top: 5px;">
+                <p id="paraEmailValidation">Please select your preferred contact method:</p>
+                <div>
+                    <input type="radio" id="rbEmailValidationYes"
+                     name="EmailValidation" value="Yes"
+                     onchange="getMobEmailVadilationVal(this, 'EmailValidation')"><tr>Yes</tr>
+                
+                    <input type="radio" id="rbEmailValidationNo"
+                     name="EmailValidation" value="No"
+                     onchange="getMobEmailVadilationVal(this, 'EmailValidation')"><tr>No</tr>
+                </div>
+
+                <div id="divEmailPhoto" class="row" style="text-align: center; display: none;">
+            
+                    <video id="videoEmail" width="300" height="300" autoplay></video>
+                    <canvas id="canvasEmail" width="250" height="250" style="display: none;"></canvas>
+                    <div class="row" style="text-align: center;">
+                        <button type="button" class="btn-info" onclick="onClickCapturePic('email')"
+                            style="text-align: -webkit-center;">Capture</button>
+        
+                        <button type="button" class="btn-info" onclick="onClickRetakePic('email')"
+                            style="text-align: -webkit-center;">Retake</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div hidden>
+                <div class="row">
+                    <p>Proposed Statement by the Customer</p>
+                </div>
+        
+                <div class="row">
+                    <p>(Engish - Kindly write following consent on paper in your preferred language, sign it and upoad the same.)</p>
+                </div>
+        
+                <div class="row">
+                    <p id="lebelVidConsentEng" style="color: cornflowerblue;">I, sdfsdf validate information / declaration given in Proposal no. asdasd through OTP received on mobile.</p>
+                </div>
+    
+                <div class="row" style="width: 100%;display: inline-block;">
+    
+                    <p class="text-bold">Select Language</p>
+    
+                    <select class="form-control" id="selectLangID" name="selectLang" onchange="onChangeLanguage(this.value);"></select>
+    
+                </div>
+    
+                <div class="row" id="pLangTitleDiv" hidden>
+                    <br>
+                    <p id="pLangTitle">उपभोक्ता  द्वारा घोषणा</p>
+                </div>
+    
+                <div class="row" id="pLangLabelDiv" hidden>
+                    <p id="pLangLabel">(हिंदी - कृपया नीचे दिए गए सहमति के वाक्य को आपकी पसंदीदा भाषा में, कागज पर लिखें और खुदके हस्ताक्षर करके अपलोड करे)</p>
+                </div>
+        
+                <div class="row" id="lebelVidConsentHinDiv" hidden>
+                    <p id="lebelVidConsentHin" style="color: cornflowerblue;"></p>
+                </div>
+        
+                <div class="row" style="margin-top: 10px; margin-bottom: 10px; text-align: -webkit-center;">
+                        <div class="col-md-6" style="display: table-cell; text-align: center;">
+                            <label for="imgbtn_aob_auth_basic_qualification_browse" class="btn btn-warning btn-width"
+                                style="text-align: -webkit-center;margin-top: 0;">
+                                <img src="../Assets/images/browse.png" id="imgbtn_aob_auth_basic_qualification_browseImage"
+                                    style="border-radius: 0px;display: block;width: 30px;height: 30px;" />
+                            </label>
+                            <input type="file" id="imgbtn_aob_auth_basic_qualification_browse"
+                                class="btn btn-warning btn-width "
+                                style="width: 220px;opacity: 0;position: absolute;z-index: -1;" value="Browse"
+                                onchange="onBrowse(this)">
+                        </div>
+                        <div class="col-md-6 uploadBtn" style="display: table-cell; text-align: center;">
+                            <button type="button" id="imgbtn_aob_auth_basic_qualification_upload"
+                                class="btn btn-warning btn-width" onclick="upload_docs(IMG_ONEPAGER)" style="text-align: -webkit-center;">
+                                <img src="../Assets/images/upload.png" id="imgbtn_aob_auth_basic_qualification_uploadIMg"
+                                    style="border-radius: 0px;display: block;width: 30px;height: 30px;" />
+                            </button>
+                        </div>
+                </div>
+        
+                <!-- <div class="row">
+                    <hr style="margin-top: 10px; margin-bottom: 10px; border-top: 1px solid black;">
+                </div> -->
+        
+                <div class="row" id="divVideoTitle">
+                    <label>Also Kindly read above statement infornt of the camera and record it.</label>
+                </div>
+        
+                <div id="divVideoButton" class="row" style="margin-top: 10px; margin-bottom: 10px; text-align: -webkit-center;">
+                    
+                        <div class="col-md-6" style="display: table-cell; text-align: center;">
+                            <button type="button" id="btnStartpRecord" class="btn btn-warning btn-width" onclick="startRecording()"
+                                style="text-align: -webkit-center;">
+                                Start Recording
+                            </button>
+                        </div>
+                        <div class="col-md-6 uploadBtn" style="display: table-cell; text-align: center;">
+                            <button id="btnStopRecord" type="button" class="btn btn-warning btn-width" onclick="stopRecording()"
+                                style="text-align: -webkit-center;">
+                                Stop Recording
+                            </button>
+                        </div>
+                    
+                </div>
+                <div id="divVideoPlayer" class="row" style="text-align: center;">
+                    <video class="video-full" controls autoplay playsinline></video>
+                </div>
+    
+                <div class="row" style="text-align: justify;">
+                    <p style="font-weight: bold; font-style: oblique; color: green;">TIPS: - 
+                        <br>1. Please preview the video before upload. You may please re-record it, if it has not been recorded correctly.
+                        <br>2. Size of video should not be more than 2MB.
+                        <br>3. You can change the video resolution setting from HD to near normal range by clicking device camera setting, video setting and set resolution to normal or standard. It will help to capture video with short size and faster uploading.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="divWhatsAppConsent" style="width: 100%; border: 1px solid #000; padding: 10px; margin-top: 5px;">
+            <p style="color: blue;">Do You want to receive all communication through Whatsapp?</p>
+            <div>
+                <div style="display: table-cell; text-align: center;">
+                    <input name="WhatsAppConsent" type="radio" id="rbWhatsAppY" value="Yes" class="btn btn-warning btn-width"
+                    style="text-align: -webkit-center;" checked/>
+                <label for="rbWhatsAppY" style="vertical-align: sub;">Yes</label>
+                </div>
+                <div style="display: table-cell; text-align: center;">
+                    <input name="WhatsAppConsent" type="radio" id="rbWhatsAppN" value="No" class="btn btn-warning btn-width"
+                    style="text-align: -webkit-center;"/>
+                <label for="rbWhatsAppN" style="vertical-align: sub;">No</label>
+                </div>            
+            </div>
+        </div>
+
+        <div class="row" id="divSendOTP" style="margin-top: 10px; margin-bottom: 10px; text-align: center;">
+
+            <button type="button" class="btn btn-warning btn-width" onclick="onClickSendOTP()"
+                style="text-align: -webkit-center;">
+                send OTP
+            </button>
+
+        </div>
+
+        <div class="row" id="divEnterOTP" style="margin-top: 10px; margin-bottom: 10px; text-align: center; display: block;">
+            <input id="txtProposalOTP" type="text" placeholder="Enter OTP" style="text-align: center;" />
+        </div>
+
+        <div class="row" style="margin-top: 10px; margin-bottom: 10px; text-align: center;">
+            <button type="button" class="btn btn-warning btn-width" onclick="onClickSubmit()"
+                style="text-align: -webkit-center;">
+                Submit
+            </button>
+        </div>
+
+        <!-- to check pdf -->
+        <!-- <div id="divViewPDF" class="container-fluid" style="margin: 10px; display: block;">
+    
+            <div class="row">
+                <iframe style="height:83%; width:99%;position:absolute;" id="framePDF"></iframe>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>
